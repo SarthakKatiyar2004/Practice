@@ -25,8 +25,7 @@ void pop1(){
   if (top1 == -1){
     printf("\nStack 1 Underflow!");
   } else{
-    int element = *(pStack + top1--);
-    printf("\nThe element popped from stack 1 is: %d",&element);
+    printf("\nThe element popped from stack 1 is: %d",*(pStack + top1--));
   }
 }
 
@@ -34,8 +33,7 @@ void peek1(){
   if (top1 == -1){
     printf("\nStack 1 is empty!");
   } else{
-    int element = *(pStack + top1);
-    printf("\nThe topmost element of stack 1 is: %d",&element);
+    printf("\nThe topmost element of stack 1 is: %d",*(pStack + top1));
   }
 }
 
@@ -61,8 +59,7 @@ void pop2(){
   if (top2 == size){
     printf("\nStack 2 Underflow!");
   } else{
-    int element = *(pStack + top2++);
-    printf("\nThe element popped from stack 2 is: %d",&element);
+    printf("\nThe element popped from stack 2 is: %d",*(pStack + top2++));
   }
 }
 
@@ -70,8 +67,7 @@ void peek2(){
   if (top2 == size){
     printf("\nStack 2 is empty!");
   } else{
-    int element = *(pStack + top2);
-    printf("\nThe topmost element of stack 2 is: %d",&element);
+    printf("\nThe topmost element of stack 2 is: %d", *(pStack + top2));
   }
 }
 
