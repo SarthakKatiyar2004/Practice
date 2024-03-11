@@ -26,3 +26,18 @@ y <- -8.2*10^-13
 
 #Question 4
 print(x*y)
+
+#Exercise 2.3
+
+#Question 1
+a <- seq(from = 5, to = -11, by = -0.3)
+
+#Question 2
+a <- seq(from = -11, to = 5, by = 0.3)
+
+#Question 3
+b <- rep( x = c(-1, 3, -5, 7, -9), times = 2, each = 10)
+print(sort(b))
+
+#Question 4
+d <- c(seq(from = 6, to = 12), rep(5.3, times = 3), -3, seq(from = 102, to = length(b), length.out = 9))
