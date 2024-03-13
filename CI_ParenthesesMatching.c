@@ -25,42 +25,6 @@ struct Stack *pCreatestack(unsigned capacity){
     pStack -> pArray = (char *)malloc(pStack -> capacity * sizeof(char));
 }
 
-int isPair(char char1, char char2){
-    if (char1 == '(' && char2 == ')'){
-        return 1;
-    }
-    if (char1 == '{' && char2 == '}'){
-        return 1;
-    }
-    if (char1 == '[' && char2 == ']'){
-        return 1;
-    }
-    else{
-        return 0;
-    }
-    
-}
-
-void push(struct Stack *pStack, char char1){
-    if (pStack -> top == pStack -> capacity - 1){
-        printf("Stack Overflow!");
-    }
-    else{
-        scanf("%c", pStack -> pArray + ++(pStack -> top));
-    }
-}
-
-void pop(struct Stack *pStack, char char2){
-    if (pStack -> top == -1){
-        printf("Stack Underflow!");
-    }
-    else{
-        if(isPair(*(pStack -> pArray + pStack -> top), char2)){
-            (pStack -> top)--;
-        }
-    }
-}
-
 
 int main(){
 
@@ -71,30 +35,5 @@ int main(){
     //for that we can dynamically allocate a space of 7 characters to *pString
 
     pString = (char *)malloc(strlen(temp));
-
-    if(pString == NULL){
-            printf("Memory allocation failed!\n");
-            return 1;
-    }
-
-    strcpy(pString, temp);
-
-    struct Stack* stack = pCreatestack(strlen(pString));
-
-    while (*pString){
-        
-        if(*pString == '(' || *pString == '{' || *pString == '['){
-            push(stack, *pString);
-        }
-        else{
-            pop(stack, *pString);
-        }
-
-        pString++;
-        
-    }
-
-    printf("%s",pString);
-
     return 0;
 }
