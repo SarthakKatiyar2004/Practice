@@ -33,7 +33,7 @@ void dequeue(){
 }
 
 void display(){
-    if (front == -1){
+    if (front == -1 || front > rear){
         printf("\nQueue Underflow!");
     }
     else{
