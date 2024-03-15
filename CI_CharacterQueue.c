@@ -17,10 +17,8 @@ void enqueue(){
     if (front == -1){
       front = 0;
     }
-    char element;
     printf("\nEnter the charcter to be enqueued: ");
-    scanf("%c", &element);
-    *(pString + ++rear) =  element;
+    scanf("%s", (pString + ++rear));
   }
 }
 
@@ -29,7 +27,7 @@ void dequeue(){
     printf("\nQueue underflow!");
   }
   else{
-    printf("\nThe element dequeued is: ", *(pString + front++));
+    printf("\nThe element dequeued is: %c", *(pString + front++));
   }
 }
 
