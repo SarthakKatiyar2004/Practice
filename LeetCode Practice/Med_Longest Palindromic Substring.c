@@ -72,27 +72,27 @@ char* preprocess(const char* s){
 }
 
 char* longestPalindromeSubstring(char* s){
-	char* t = preprocess(s);
-	int n = strlen(t);
-	int *p = (int*)calloc(n, sizeof(int));
-	int center = 0, right = 0;
+    char* t = preprocess(s);
+    int n = strlen(t);
+    int *p = (int*)calloc(n, sizeof(int));
+    int center = 0, right = 0;
 
-	for (int i = 1; i < n-1; i++){
-		int mirror = 2*center-i;
-		if (i < right)  {p[i] = (right - i < p[mirror] ? right-i : p[mirror]);}
-		while (t[i + 1 + p[i]] == t[i - 1 - p[i]]) p[i]++;
-		if (i + p[i] > right) {center = i; right = i + p[i]; }
-	}
+    for (int i = 1; i < n - 1; i++) {
+        int mirror = 2 * center - i;
+        if (i < right) p[i] = (right - i < p[mirror]) ? (right - i) : p[mirror];
+        while (t[i + 1 + p[i]] == t[i - 1 - p[i]]) p[i]++;
+        if (i + p[i] > right) {center = i; right = i + p[i];}
+    }
 
-	int maxLen = 0, centerIndex = 0;
-	for (int i = 1; i < n-1; i++){ if (p[i] > maxLen) maxLen = p[i]; centerIndex = i; }
-	int start = (centerIndex - maxLen)/2;
+    int maxLen = 0, centerIndex = 0;
+    for (int i = 1; i < n - 1; i++) if (p[i] > maxLen) { maxLen = p[i]; centerIndex = i; }
 
-	char* res = (char*)malloc((maxLen+1)*sizeof(char));
-	strncpy(res, s+start, maxLen);
-	s[maxLen] = '\0';
+    int start = (centerIndex - maxLen) / 2;
+    char* res = (char*)malloc((maxLen + 1) * sizeof(char));
+    strncpy(res, s + start, maxLen);
+    res[maxLen] = '\0';
 
-	free(t);
-	free(p);
-	return s;
+    free(t);
+    free(p);
+    return res;
 }
